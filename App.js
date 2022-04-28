@@ -27,8 +27,8 @@ export default function App() {
   };
 
   const getLocation = async () => {
-    let a = await Location.requestForegroundPermissionsAsync();
-    if (a.status !== "granted") {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
       setNotHasLocation(true);
       return;
     }
